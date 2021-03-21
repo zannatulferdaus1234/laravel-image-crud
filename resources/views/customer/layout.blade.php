@@ -13,7 +13,7 @@
   <body>
     <div class="container mt-5">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
 
                 @yield('content')
 

@@ -30,6 +30,8 @@
         <td>
             <a href="{{route('edit-customer',$customer->id)}}" class="mr-3">Edit</a>
             <a href="{{route('delete-customer',$customer->id)}}">Delete</a>
+            <a href="{{route('create-customerNo',$customer->id)}}" class="btn btn-primary">Phone</a>
+
         </td>
       </tr>
       @endforeach

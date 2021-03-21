@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CustomerController;
-
+use App\Http\Controllers\PhoneController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,11 +21,17 @@ Route::get('/', function () {
 
 Route::prefix('customer')->group(function () {
 
-Route::get('/',             [CustomerController::class,'index'])    ->name('all-customer');
-Route::get('/create',      [CustomerController::class,'create'])   ->name('create-customer');
+Route::get('/', [CustomerController::class,'index'])    ->name('all-customer');
+Route::get('/create',       [CustomerController::class,'create'])   ->name('create-customer');
 Route::post('/',            [CustomerController::class,'store'])    ->name('store-customer');
-Route::get('/edit/{id}',   [CustomerController::class,'edit'])     ->name('edit-customer');
-Route::get('/delete/{id}', [CustomerController::class,'destroy'])  ->name('delete-customer');
+Route::get('/edit/{id}',    [CustomerController::class,'edit'])     ->name('edit-customer');
+Route::get('/delete/{id}',  [CustomerController::class,'destroy'])  ->name('delete-customer');
 Route::patch('/update/{id}',[CustomerController::class,'update'])   ->name('update-customer');
 
+Route::get('/phone/{id}',       [PhoneController::class,'create']) ->name('create-customerNo');
+Route::get('/phone',[PhoneController::class,'index'])  ->name('customerNo');
+Route::post('/phone/{id}/add',      [PhoneController::class,'store'])->name('store-customerNo');
+
 });
+
+
