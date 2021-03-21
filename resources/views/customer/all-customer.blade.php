@@ -15,10 +15,11 @@
         <th scope="col">Email</th>
         <th scope="col">Image</th>
         <th scope="col">Action</th>
+        <th scope="col">Phone</th>
       </tr>
     </thead>
     <tbody>
-        @foreach($customers as $customer)
+        @forelse($customers as $customer)
       <tr>
         <th scope="row">{{$loop->iteration}}</th>
         <td>{{ $customer->name}}</td>
@@ -30,11 +31,17 @@
         <td>
             <a href="{{route('edit-customer',$customer->id)}}" class="mr-3">Edit</a>
             <a href="{{route('delete-customer',$customer->id)}}">Delete</a>
-            <a href="{{route('create-customerNo',$customer->id)}}" class="btn btn-primary">Phone</a>
+        </td>
 
+        <td>
+            <a href="{{route('show-customerNo',$customer->id)}}" class="btn btn-primary">See Phone</a>
+            <a href="{{route('create-customerNo',$customer->id)}}" class="btn btn-primary">Add Phone</a>
         </td>
       </tr>
-      @endforeach
+
+      @empty
+        <p>No Customers yet !!!<?p>
+      @endforelse
 
     </tbody>
   </table>

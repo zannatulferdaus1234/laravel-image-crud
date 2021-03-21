@@ -28,9 +28,10 @@ Route::get('/edit/{id}',    [CustomerController::class,'edit'])     ->name('edit
 Route::get('/delete/{id}',  [CustomerController::class,'destroy'])  ->name('delete-customer');
 Route::patch('/update/{id}',[CustomerController::class,'update'])   ->name('update-customer');
 
-Route::get('/phone/{id}',       [PhoneController::class,'create']) ->name('create-customerNo');
-Route::get('/phone',[PhoneController::class,'index'])  ->name('customerNo');
-Route::post('/phone/{id}/add',      [PhoneController::class,'store'])->name('store-customerNo');
+
+Route::get('/phone/{customer}/show',[PhoneController::class,'show'])   ->name('show-customerNo');
+Route::get('/phone/{customer}/add', [PhoneController::class,'create'])   ->name('create-customerNo');
+Route::post('/phone/{customer}',    [PhoneController::class,'store'])    ->name('store-customerNo');
 
 });
 
