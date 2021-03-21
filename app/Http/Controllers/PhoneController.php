@@ -25,9 +25,8 @@ class PhoneController extends Controller
     {
         $phone::create(request()->validate([
             'customer_id' => 'required',
-            'phone' => 'required|min:11|max:12'
+            'phone' => 'required|regex:/^[0][1][3-9][0-9]{8}$/'
         ]));
         return redirect(route('all-customer'));
     }
-
 }
